@@ -1,0 +1,26 @@
+{
+  "name": "current",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist"
+  },
+  "devDependencies": {
+    "@types/alpinejs": "^3.13.11",
+    "@types/sortablejs": "^1.15.8",
+    "gh-pages": "^6.3.0",
+    "typescript": "~5.8.3",
+    "vite": "^7.0.4"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.11",
+    "alpinejs": "^3.14.9",
+    "sortablejs": "^1.15.6",
+    "sweetalert2": "^11.23.0",
+    "tailwindcss": "^4.1.11"
+  }
+}
