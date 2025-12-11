@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/current/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/current/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/current/favicon-16x16.png" />
+    <link rel="manifest" href="/current/manifest.webmanifest" />
+    <meta name="theme-color" content="#000000" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+    <title>Current</title>
+    <script type="module" crossorigin src="/current/assets/index-ByRR5IEX.js"></script>
+    <link rel="stylesheet" crossorigin href="/current/assets/index-Ces0iv48.css">
+  </head>
+  <body class="bg-gradient-to-b from-[#290202] to-[#F22020]">
+    <!-- Start: App Settings -->
+    <section class="mt-[40px]">
+      <div class="max-w-[1000px] mx-auto px-2">
+        <!-- Action Buttons -->
+        <div class="flex md:items-center justify-between flex-wrap gap-4">
+          <div></div>
+
+          <div class="flex items-center flex-wrap gap-4">
+            <button
+              class="py-2 px-4 rounded-md font-medium cursor-pointer delete-all-task-btn"
+            >
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14.7001 8.16835L12.5668 4.63502C11.7668 3.33502 10.1834 2.60169 8.70008 3.03502C6.46675 3.70169 5.60008 6.21835 6.71675 8.06835L8.91675 11.685C9.16675 12.0684 9.68342 12.2017 10.0668 11.9684L14.4168 9.31835C14.8168 9.06835 14.9501 8.55169 14.7001 8.16835Z"
+                  fill="#E6E9ED"
+                />
+                <path
+                  d="M32.9006 23.683L28.2172 17.3497C26.5839 15.1497 23.7506 14.1164 21.0839 14.8331C21.0839 14.8164 21.0672 14.8164 21.0672 14.7997L18.3006 10.2497C17.8006 9.4664 16.7672 9.2164 15.9839 9.69973L10.2005 13.2164C9.40053 13.6831 9.15053 14.7331 9.63386 15.5331L12.3839 20.083C12.3839 20.083 12.3839 20.0997 12.4005 20.0997C10.5505 22.1497 10.1505 25.133 11.3839 27.6163L14.8505 34.683C15.9172 36.8663 18.4339 37.6997 20.5672 36.5997C20.7339 36.5163 20.7839 36.3163 20.6839 36.1497L18.0839 31.8497C17.7172 31.2497 17.9006 30.483 18.5006 30.0997C19.1006 29.7497 19.8672 29.933 20.2506 30.5163L22.8672 34.8163C22.9672 34.9663 23.1672 35.0163 23.3172 34.933L24.9172 33.9663C25.0672 33.8663 25.1172 33.6663 25.0339 33.5163L22.4172 29.2163C22.0672 28.6163 22.2506 27.8497 22.8339 27.4663C23.4506 27.1163 24.2172 27.2997 24.5839 27.883L27.2006 32.183C27.3006 32.333 27.5006 32.383 27.6506 32.2997L29.2506 31.333C29.4006 31.233 29.4506 31.033 29.3672 30.883L26.7506 26.583C26.4006 25.983 26.5839 25.2163 27.1672 24.833C27.7839 24.483 28.5506 24.6663 28.9172 25.2497L31.5506 29.533C31.6506 29.683 31.8506 29.733 32.0006 29.633C33.9339 28.2497 34.3672 25.6497 32.9006 23.683Z"
+                  fill="#E6E9ED"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End: App Settings -->
+
+    <!-- Start: App -->
+    <section class="mt-[20px] pb-[200px] min-h-dvh">
+      <div class="max-w-[1000px] mx-auto px-2">
+        <!-- Tasks/Inputs -->
+        <div id="tasks-container" x-data>
+          <template x-for="task in $store.app.tasks" :key="task.id">
+            <div
+              class="relative mt-2 border-b-[4px] bg-[#230303]/40 text-white border-[#230303]/60 rounded-t-[8px] rounded-b-[8px] p-2.5 task-box"
+              :data-id="task.id"
+            >
+              <textarea
+                name="text"
+                x-model="task.text"
+                @input="$store.app.saveStateChanges()"
+                placeholder="What's the current"
+                class="w-full hide-scrollbar resize-none h-max outline-0 text-xl font-medium current-input"
+              ></textarea>
+
+              <div class="flex items-center justify-between">
+                <div></div>
+
+                <div class="flex items-center gap-x-8">
+                  <button
+                    class="w-7.5 h-7.5 bg-rose-400/20 hover:bg-rose-400/50 rounded-lg cursor-pointer flex items-center justify-center"
+                    @click="$store.app.duplicateTask(task)"
+                  >
+                    <div x-data="iconComponent('copy', '')" x-html="icon"></div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+    </section>
+    <!-- End: App -->
+
+  </body>
+</html>
